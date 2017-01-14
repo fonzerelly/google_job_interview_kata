@@ -1,0 +1,19 @@
+{
+  "name": "google_job_interview_kata",
+  "version": "1.0.0",
+  "description": "A functional solution to the task provided in thefictive job interview seen on https://www.youtube.com/watch?v=XKu_SEDAykw&t=8s",
+  "main": "google.js",
+  "scripts": {
+    "test_setup": "jasmine init",
+    "test": "jasmine"
+  },
+  "keywords": [
+    "google",
+    "kata"
+  ],
+  "author": "Christian Hoerauf",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
