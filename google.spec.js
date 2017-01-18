@@ -18,5 +18,4 @@ describe('google', () => {
             expect(G.getSummands(8, [1,2,7,8])).toEqual([1,7])
         })
     })
-
 })
