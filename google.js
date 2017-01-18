@@ -2,23 +2,25 @@ const lodash = require('lodash')
 module.exports = {
     getSummands: (sum, list) => {
         'use strict';
-        let current = 0;
-        for(let i=list.length-1; i>=0; i--) {
-            let iterSum = list[i] + list[current]
-                console.log(iterSum, i, current)
-            if (iterSum === sum) {
-                return [list[i], list[current]]
+        const _iteration = (current, _list) => {
+            if ((lodash.head(_list) + current) === sum) {
+                return [current, lodash.head(_list)]
             }
-
-            if (iterSum < sum) {
-                current++;
+            if (lodash.isEmpty(lodash.tail(_list))) {
+                return []
             }
-
-            if (current === i) {
-                break
-            }
-
+            return _iteration(current, lodash.tail(_list));
         }
-        return []
+        const _outer = (_list) => {
+            const result = _iteration(lodash.head(_list), lodash.tail(_list))
+            if (!lodash.isEmpty(result)) {
+                return result
+            }
+            if (lodash.isEmpty(_list)) {
+                return []
+            }
+            return _outer(lodash.tail(_list))
+        }
+        return _outer(list)
     }
 }
